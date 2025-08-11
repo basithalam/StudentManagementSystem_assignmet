@@ -1,5 +1,3 @@
-# StudentManagementSystem_assignmet
-
 # 🎓 Student Management System – ASP.NET Core MVC
 
 A simple Student Management System built with ASP.NET Core MVC and Entity Framework Core. This project demonstrates basic CRUD operations, LINQ queries, and integration with a SQL Server relational database.
