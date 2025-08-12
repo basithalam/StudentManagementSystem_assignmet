@@ -13,7 +13,7 @@ namespace StudentManagementSystem_assignmet.Controllers
             _context = context;
         }
 
-        // READ: Show students age > 18
+        // READ: Show students age > 18 using LINQ 
         public IActionResult Index()
         {
             var students = _context.Students
@@ -83,7 +83,7 @@ namespace StudentManagementSystem_assignmet.Controllers
             return RedirectToAction("Index");
         }
 
-        // SEARCH: By name
+        // SEARCH: By name using LINQ 
         public IActionResult Search(string name)
         {
             var result = _context.Students

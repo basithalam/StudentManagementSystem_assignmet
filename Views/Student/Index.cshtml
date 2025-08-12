@@ -21,6 +21,7 @@
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Age</th>
@@ -31,6 +32,7 @@
             @foreach (var student in Model)
             {
                 <tr>
+                    <td>@student.Id</td>
                     <td>@student.FirstName @student.LastName</td>
                     <td>@student.Email</td>
                     <td>@student.Age</td>
