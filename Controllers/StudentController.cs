@@ -13,7 +13,7 @@ namespace StudentManagementSystem_assignmet.Controllers
             _context = context;
         }
 
-        // READ: Show students age > 18 using LINQ 
+        // READ: Show students whose age is greater than age > 18 using LINQ query 
         public IActionResult Index()
         {
             var students = _context.Students
@@ -22,6 +22,17 @@ namespace StudentManagementSystem_assignmet.Controllers
 
             ViewBag.StudentCount = students.Count();
             return View(students);
+        }
+
+        // SEARCH: By name using LINQ query
+        public IActionResult Search(string name)
+        {
+            var result = _context.Students
+                .Where(s => s.FirstName.Contains(name) || s.LastName.Contains(name))
+                .ToList();
+
+            ViewBag.StudentCount = result.Count();
+            return View("Index", result);
         }
 
         // CREATE: Show form
@@ -81,17 +92,6 @@ namespace StudentManagementSystem_assignmet.Controllers
                 _context.SaveChanges();
             }
             return RedirectToAction("Index");
-        }
-
-        // SEARCH: By name using LINQ 
-        public IActionResult Search(string name)
-        {
-            var result = _context.Students
-                .Where(s => s.FirstName.Contains(name) || s.LastName.Contains(name))
-                .ToList();
-
-            ViewBag.StudentCount = result.Count();
-            return View("Index", result);
         }
     }
 }
